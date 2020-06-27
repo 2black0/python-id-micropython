@@ -18,7 +18,7 @@ web: https://micropython.org/
 
 doc: http://docs.micropython.org/en/latest/
 
-<img src="pic/damian.png" width="200" align="left"/>
+<img src="pic/damian.png" width="200"/>
 
 <img src="pic/logo-micropython.png" width="200" align="center"/>
 <br> <br> <br> <br>
@@ -39,7 +39,7 @@ web: https://www.espressif.com/en/products/socs/esp32/overview
 
 Salah satu board yang menggunakan ESP32, lolin32 lite:
 
-<img src="pic/lolin32-lite.png" width="400" align="left"/>
+<img src="pic/lolin32-lite.png" width="400"/>
 
 # Praktik
 ## Live Online
@@ -59,7 +59,7 @@ sumber: https://docs.conda.io/projects/conda/en/latest/user-guide/install/downlo
 
 saya menggunakan versi minimalis yaitu Miniconda
 
-<img src="pic/miniconda.png" width="275" align="left"/>
+<img src="pic/miniconda.png" width="275"/>
 
 ### Instalasi esptool
 saya merekomendasikan membuat environment baru dan sekalian menginstall pip pada environment tersebut, untuk conda bisa ketik perintah berikut
@@ -76,12 +76,12 @@ install esptool dengan perintah:
 cek hasil instalasi dengan ketik dan akan muncul versi yang digunakan
 > `> esptool`
 
-<img src="pic/esptool.png" width="750" align="left"/>
+<img src="pic/esptool.png" width="750"/>
 
 ### Flash Firmware MicroPython ke ESP32
 download firmware: http://micropython.org/download/esp32/
 
-<img src="pic/micropython-firmware.png" width="350" align="left"/>
+<img src="pic/micropython-firmware.png" width="350"/>
 
 download bisa dilakukan secara manual dengan klik link atau menggunakan wget dengan perintah:
 
@@ -89,7 +89,7 @@ download bisa dilakukan secara manual dengan klik link atau menggunakan wget den
 
 hubungkan ESP32 dengan laptop / komputer via kabel USB dan cek COM yang terdeteksi via device manager
 
-<img src="pic/serial-com.png" width="650" align="left"/>
+<img src="pic/serial-com.png" width="650"/>
 
 hapus firmware sebelum kita mengupgrade firmware yang lebih baru dengan mengetik:
 
@@ -103,7 +103,7 @@ download putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 jalankan dan isi COM yang digunakan serta baudrate 115200 dan klik open untuk membuka koneksi
 
-<img src="pic/putty-1.png" width="450" align="left"/>
+<img src="pic/putty-1.png" width="450"/>
 
 ## Jupyter notebook MicroPython Kernel
 install kernel pada jupyter notebook dengan mengetik:
@@ -116,4 +116,4 @@ install kernel pada jupyter notebook dengan mengetik:
 buka jupyter notebook dengan perintah:
 > `> jupyter notebook`
 
-<img src="pic/jupyter-notebook.png" width="650" align="left"/>
+<img src="pic/jupyter-notebook.png" width="650"/>
