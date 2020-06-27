@@ -22,10 +22,9 @@ doc: http://docs.micropython.org/en/latest/
 
 <img src="pic/damian.png" width="200" align="left"/>
 
-<img src="pic/logo-micropython.png" width="200" align="center"/>
+<img src="pic/logo-micropython.png" width="200" align="center"/> <br> <br> <br> <br> <br> <br> <br> 
 
 ## Supported Board / Chip
-
 Supported board list : https://micropython.org/download/
 
 <img src="pic/board-list-1.png" width="450" align="left"/>
