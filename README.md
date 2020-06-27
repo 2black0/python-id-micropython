@@ -1,5 +1,4 @@
 # Webinar Python-ID Jogja
-
 ## Topik
 Topik kita kali ini adalah **Bermain Mikrokontroler dengan menggunakan MicroPython.**
 <br>
@@ -12,7 +11,6 @@ Pemateri pada topik ini akan dibawakan oleh **Ardy Seto Priambodo, S.T., M.Eng.*
 <img src="pic/poster.jpg" width="450" align="center"/>
 
 # Materi Teori
-
 ## MicroPython
 MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.
 
@@ -22,19 +20,19 @@ doc: http://docs.micropython.org/en/latest/
 
 <img src="pic/damian.png" width="200" align="left"/>
 
-<img src="pic/logo-micropython.png" width="200" align="center"/> <br> <br> <br> <br> <br> <br> <br> 
+<img src="pic/logo-micropython.png" width="200" align="center"/>
+<br> <br> <br> <br>
 
 ## Supported Board / Chip
 Supported board list : https://micropython.org/download/
 
-<img src="pic/board-list-1.png" width="450" align="left"/>
+<img src="pic/board-list-1.png" width="450"/>
 
-<img src="pic/board-list-2.png" width="250" align="left"/>
+<img src="pic/board-list-2.png" width="250"/>
 
-<img src="pic/board-list-3.png" width="450" align="left"/>
+<img src="pic/board-list-3.png" width="450"/>
 
 ## ESP32
-
 ESP32 is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
 
 web: https://www.espressif.com/en/products/socs/esp32/overview
@@ -44,12 +42,10 @@ Salah satu board yang menggunakan ESP32, lolin32 lite:
 <img src="pic/lolin32-lite.png" width="400" align="left"/>
 
 # Praktik
-
 ## Live Online
 Micropython.org menyediakan live micropython secara online yang diberi nama unicorn, bisa diakses di: https://micropython.org/unicorn/
 
 ## Instalasi MicroPython ke ESP32
-
 ### Perangkat yang dibutuhkan:
  - python (saya merekomendasikan conda)
  - esptool
@@ -83,7 +79,6 @@ cek hasil instalasi dengan ketik dan akan muncul versi yang digunakan
 <img src="pic/esptool.png" width="750" align="left"/>
 
 ### Flash Firmware MicroPython ke ESP32
-
 download firmware: http://micropython.org/download/esp32/
 
 <img src="pic/micropython-firmware.png" width="350" align="left"/>
@@ -104,7 +99,6 @@ kemudian flash firmware yang telah kita download dengan cara ketik (perhatikan C
 > `> esptool.py --chip esp32 --port COM9 write_flash -z 0x1000 esp32-idf3-20191220-v1.12.bin`
 
 ## REPL (Read-Eval-Print Loop)
-
 download putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 jalankan dan isi COM yang digunakan serta baudrate 115200 dan klik open untuk membuka koneksi
@@ -112,7 +106,6 @@ jalankan dan isi COM yang digunakan serta baudrate 115200 dan klik open untuk me
 <img src="pic/putty-1.png" width="450" align="left"/>
 
 ## Jupyter notebook MicroPython Kernel
-
 install kernel pada jupyter notebook dengan mengetik:
 > `> git clone https://github.com/goatchurchprime/jupyter_micropython_kernel.git`
 >
