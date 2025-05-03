@@ -1,119 +1,164 @@
-# Webinar Python-ID Jogja
-## Topik
-Topik kita kali ini adalah **Bermain Mikrokontroler dengan menggunakan MicroPython.**
-<br>
-Materi bisa diakses di : https://s.id/kSiA7
+# 🐍 MicroPython on ESP32 — Workshop Materials
 
-## Pemateri
-Pemateri pada topik ini akan dibawakan oleh **Ardy Seto Priambodo, S.T., M.Eng.**
+Welcome to the companion repository for the Python-ID Jogja community session on **MicroPython with ESP32**.
 
-## Poster
-<img src="pic/poster.jpg" width="450" align="center"/>
+> 📅 **Event Topic**: Playing with Microcontrollers using MicroPython  
+> 🎙️ **Speaker**: Ardy Seto Priambodo, S.T., M.Eng.  
+> 📑 **Slides & Materials**: [Access via s.id/kSiA7](https://s.id/kSiA7)
 
-# Materi Teori
-## MicroPython
-MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.
+---
 
-web: https://micropython.org/
+## 🧠 About MicroPython
 
-doc: http://docs.micropython.org/en/latest/
+**MicroPython** is a lean and efficient implementation of Python 3 specifically designed to run on microcontrollers like the ESP8266, ESP32, STM32, and more. It brings Pythonic control to hardware devices — perfect for IoT and embedded systems development.
 
-<img src="pic/damian.png" width="200"/>
+- 🔗 Website: [https://micropython.org](https://micropython.org)
+- 📚 Documentation: [MicroPython Docs](http://docs.micropython.org/en/latest/)
 
-<img src="pic/logo-micropython.png" width="200" align="center"/>
-<br> <br> <br> <br>
+<p align="center">
+  <img src="pic/logo-micropython.png" width="150">
+</p>
 
-## Supported Board / Chip
-Supported board list : https://micropython.org/download/
+---
 
-<img src="pic/board-list-1.png" width="450"/>
+## 🔧 Required Hardware & Components
 
-<img src="pic/board-list-2.png" width="250"/>
+| Component       | Description                     |
+|----------------|---------------------------------|
+| ESP32 Board     | Example: LOLIN32 Lite           |
+| RGB LED         | With resistor or breadboard     |
+| DHT11 Sensor    | Temperature & Humidity Sensor   |
+| USB Cable       | For flashing & powering ESP32   |
 
-<img src="pic/board-list-3.png" width="450"/>
+<p align="center">
+  <img src="pic/lolin32-lite.png" width="300">  
+  <img src="pic/rgb-led.jpg" width="220">
+</p>
 
-## ESP32
-ESP32 is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
+---
 
-web: https://www.espressif.com/en/products/socs/esp32/overview
+## 📦 Firmware and Tools
 
-Salah satu board yang menggunakan ESP32, lolin32 lite:
+### ✅ Flashing MicroPython to ESP32
 
-<img src="pic/lolin32-lite.png" width="400"/>
+1. **Install Miniconda (recommended)**  
+   👉 [Miniconda Download](https://docs.conda.io/en/latest/miniconda.html)
 
-# Praktik
-## Live Online
-Micropython.org menyediakan live micropython secara online yang diberi nama unicorn, bisa diakses di: https://micropython.org/unicorn/
+2. **Set up environment:**
+   ```bash
+   conda create --name micropython python=3.8
+   conda activate micropython
+   conda install -c anaconda pip
+   conda install -c anaconda jupyter
+   pip install esptool
+   ```
 
-## Instalasi MicroPython ke ESP32
-### Perangkat yang dibutuhkan:
- - python (saya merekomendasikan conda)
- - esptool
- - jupyter
- - ESP32
- - led RGB
- - sensor DHT11
+3. **Flash Firmware**
 
-### Instalasi Python
-sumber: https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html
+   * Download from [https://micropython.org/download/esp32/](https://micropython.org/download/esp32/)
+   * Example (firmware included in `/firmware`):
 
-saya menggunakan versi minimalis yaitu Miniconda
+     ```bash
+     esptool.py --chip esp32 erase_flash
+     esptool.py --chip esp32 --port COM9 write_flash -z 0x1000 firmware/esp32-idf3-20191220-v1.12.bin
+     ```
 
-<img src="pic/miniconda.png" width="275"/>
+<p align="center"><img src="pic/esptool.png" width="600"></p>
 
-### Instalasi esptool
-saya merekomendasikan membuat environment baru dan sekalian menginstall pip pada environment tersebut, untuk conda bisa ketik perintah berikut
-> `> conda create --name micropython`
->
-> `> conda install -c anaconda pip`
+---
 
-install jupyter dengan perintah:
-> `> conda install -c anaconda jupyter`
+## 📡 Serial Communication (REPL)
 
-install esptool dengan perintah:
-> `> pip install esptool`
+Use **PuTTY** to interact with ESP32 via REPL.
 
-cek hasil instalasi dengan ketik dan akan muncul versi yang digunakan
-> `> esptool`
+* Download: [https://www.putty.org/](https://www.putty.org/)
+* Baud rate: `115200`
+* COM Port: Refer to Device Manager
 
-<img src="pic/esptool.png" width="750"/>
+<p align="center"><img src="pic/putty-1.png" width="450"></p>
 
-### Flash Firmware MicroPython ke ESP32
-download firmware: http://micropython.org/download/esp32/
+---
 
-<img src="pic/micropython-firmware.png" width="350"/>
+## 📓 Using Jupyter Notebook for MicroPython
 
-download bisa dilakukan secara manual dengan klik link atau menggunakan wget dengan perintah:
+1. Install MicroPython Kernel:
 
-> `> wget http://micropython.org/resources/firmware/esp32-idf3-20191220-v1.12.bin`
+   ```bash
+   git clone https://github.com/goatchurchprime/jupyter_micropython_kernel.git
+   pip install -e jupyter_micropython_kernel
+   python -m jupyter_micropython_kernel.install
+   ```
 
-hubungkan ESP32 dengan laptop / komputer via kabel USB dan cek COM yang terdeteksi via device manager
+2. Launch Notebook:
 
-<img src="pic/serial-com.png" width="650"/>
+   ```bash
+   jupyter notebook
+   ```
 
-hapus firmware sebelum kita mengupgrade firmware yang lebih baru dengan mengetik:
+<p align="center"><img src="pic/jupyter-notebook.png" width="600"></p>
 
-> `> esptool.py --chip esp32 erase_flash`
+---
 
-kemudian flash firmware yang telah kita download dengan cara ketik (perhatikan COM yang digunakan):
-> `> esptool.py --chip esp32 --port COM9 write_flash -z 0x1000 esp32-idf3-20191220-v1.12.bin`
+## 📁 Project Structure
 
-## REPL (Read-Eval-Print Loop)
-download putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+```
+.
+├── LICENSE
+├── README.md
+├── firmware/
+│   └── esp32-idf3-20191220-v1.12.bin         # MicroPython firmware for ESP32
+├── pic/                                      # All related diagrams and photos
+│   ├── board-list-*.png
+│   ├── lolin32-lite-*.jpg/png
+│   ├── esptool.png, serial-com.png, poster.jpg, etc.
+└── Project/
+    ├── main.html                             # HTML presentation version
+    ├── main.ipynb                            # Main Jupyter tutorial
+    └── test.ipynb                            # Supplementary code
+```
 
-jalankan dan isi COM yang digunakan serta baudrate 115200 dan klik open untuk membuka koneksi
+---
 
-<img src="pic/putty-1.png" width="450"/>
+## 📷 Visual Highlights
 
-## Jupyter notebook MicroPython Kernel
-install kernel pada jupyter notebook dengan mengetik:
-> `> git clone https://github.com/goatchurchprime/jupyter_micropython_kernel.git`
->
-> `> pip install -e jupyter_micropython_kernel`
->
-> `> python -m jupyter_micropython_kernel.install`
+| Firmware Flashing                 | DHT Sensor         | RGB LED Test                     |
+| --------------------------------- | ------------------ | -------------------------------- |
+| ![](pic/micropython-firmware.png) | ![](pic/dht11.jpg) | ![](pic/lolin32-lite-led-on.jpg) |
 
-buka jupyter notebook dengan perintah:
-> `> jupyter notebook`
+---
 
-<img src="pic/jupyter-notebook.png" width="650"/>
+## 🙋 FAQ
+
+* **Do I need an internet connection to program ESP32 with MicroPython?**
+  No, you can use serial-only interaction using USB.
+
+* **Can I program ESP32 in a browser?**
+  Yes! Try [https://micropython.org/unicorn/](https://micropython.org/unicorn/) for a live MicroPython experience.
+
+* **How is MicroPython different from Arduino IDE?**
+  MicroPython uses Python syntax and doesn't need compilation. It’s more readable and suitable for rapid prototyping.
+
+---
+
+## 📜 License
+
+This repository is licensed under the [MIT License](LICENSE).
+
+---
+
+## ⭐ Support
+
+If you find this repository useful:
+
+* Star 🌟 the repo
+* Share it on social media or tech communities
+* Contribute via Pull Requests or Issues
+
+---
+
+## 👨‍🏫 Acknowledgment
+
+This tutorial was presented as part of Python-ID Jogja webinar by:
+
+**Ir. Ardy Seto Priambodo, S.T., M.Eng.**
+📧 [2black0@gmail.com](mailto:2black0@gmail.com)
